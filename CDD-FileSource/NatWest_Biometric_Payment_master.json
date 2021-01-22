@@ -1,31 +1,31 @@
 {
 	"objects": [
 		{
-			"application": "Local|NatWest-Online-Payments",
-			"name": "master",
+			"application": "Local|${APPLICATION1_NAME}",
+			"name": "${APPLICATION1_VERSION_NAME}",
 			"kind": "ApplicationVersion"
 		},
 		{
-			"application": "Local|NatWest-Money-Transfer",
-			"name": "master",
+			"application": "Local|${APPLICATION3_NAME}",
+			"name": "${APPLICATION3_VERSION_NAME}",
 			"kind": "ApplicationVersion"
 		},
 		{
-			"application": "Local|NatWest-Credit-Score",
-			"name": "master",
+			"application": "Local|${APPLICATION2_NAME}",
+			"name": "${APPLICATION2_VERSION_NAME}",
 			"kind": "ApplicationVersion"
 		},
 		{
 			"runOnCreation": false,
 			"applicationVersions": [
-				"Local|NatWest-Money-Transfer/master",
-				"Local|NatWest-Credit-Score/master",
-				"Local|NatWest-Online-Payments/master"
+				"Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}",
+				"Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}",
+				"Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 			],
 			"isReplaceApplicationVersionOnChangeNotification": false,
 			"markAsDonePhaseName": "",
-			"version": "master",
-			"name": "NatWest Biometric Payment",
+			"version": "${BUSINESS_APPLICATION_VERSION_NAME}",
+			"name": "${BUSINESS_APPLICATION_NAME}",
 			"kind": "Release",
 			"ownerParties": [
 				"superuser@ca.com",
@@ -33,7 +33,7 @@
 			]
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"isProduction": false,
 			"scope": "RELEASE_SCOPE",
 			"value": "Deployment on UAT",
@@ -41,15 +41,15 @@
 			"kind": "ReleaseToken"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"isProduction": false,
 			"scope": "RELEASE_SCOPE",
-			"value": "CHG0031192",
+			"value": "CHG0031195",
 			"name": "CR_ID",
 			"kind": "ReleaseToken"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"isProduction": false,
 			"scope": "RELEASE_SCOPE",
 			"value": "Work in Progress",
@@ -57,7 +57,7 @@
 			"kind": "ReleaseToken"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"isProduction": false,
 			"scope": "RELEASE_SCOPE",
 			"value": "State",
@@ -65,7 +65,7 @@
 			"kind": "ReleaseToken"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"DEV"
 			],
@@ -76,7 +76,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"QA"
 			],
@@ -88,7 +88,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"UAT"
 			],
@@ -100,7 +100,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"PRODUCTION"
 			],
@@ -112,21 +112,21 @@
 			"kind": "Phase"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/DEV",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Deploy NatWest Biometric Payment",
+			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -134,23 +134,23 @@
 				"inventoryPath": "inventories/inventory.txt",
 				"parallelProcessCount": "5",
 				"playbookPath": "playbooks/first_local_playbook.yml",
-				"branch": "master",
+				"branch": "${BUSINESS_APPLICATION_VERSION_NAME}",
 				"verbosity": "Normal"
 			},
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/DEV",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Deploy NatWest Online Payments",
+			"name": "Deploy ${APPLICATION1_NAME}",
 			"kind": "Task",
 			"plugin": "Tomcat/1.0",
 			"endpoint": "Tomcat",
@@ -159,24 +159,24 @@
 				"packageGroup": "dummy",
 				"packageVersion": "1.0",
 				"packageArtifact": "dummy",
-				"buildNumber": "%NatWest-Online-Payments.last_successful_change%"
+				"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%"
 			},
 			"type": "Deploy Artifact"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/DEV",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"Deploy NatWest Biometric Payment",
-				"Deploy NatWest Online Payments"
+				"Deploy ${BUSINESS_APPLICATION_NAME}",
+				"Deploy ${APPLICATION1_NAME}"
 			],
 			"name": "SonarQube",
 			"kind": "Task",
@@ -189,12 +189,12 @@
 			"type": "Check Project Status"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/DEV",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
@@ -206,7 +206,7 @@
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Money-Transfer.last_successful_change%",
+				"changeId": "%${APPLICATION3_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
@@ -215,12 +215,12 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/DEV",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": false,
@@ -228,39 +228,64 @@
 			"previousTasks": [
 				"CucumberJVM - Money Transfer"
 			],
-			"name": "NatWest-Online-Payments API Testing",
+			"name": "${APPLICATION1_NAME} API Testing",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Online-Payments.last_successful_change%",
+				"changeId": "%${APPLICATION1_NAME}.last_successful_change%",
 				"runOnlySubset": "true"
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"Robot NatWest-Online-Payments",
-				"GradleTesting NatWest-Online-Payments"
+				"GradleTesting ${APPLICATION1_NAME}"
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/QA",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
+				}
+			],
+			"isOnFailurePhaseEnabled": false,
+			"isSkipTaskOnFailure": true,
+			"previousTasks": [
+				"${APPLICATION1_NAME} API Testing"
+			],
+			"name": "${APPLICATION2_NAME} API Testing",
+			"kind": "Task",
+			"plugin": "ADAPTIVE TESTING/1.1.1|2",
+			"parameters": {
+				"changeId": "%${APPLICATION2_NAME}.last_successful_change%",
+				"runOnlySubset": "true"
+			},
+			"type": "Run Adaptive Testing",
+			"tags": [
+				"Robot ${APPLICATION2_NAME}"
+			]
+		},
+		{
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/QA",
+			"isDisabled": false,
+			"applicationVersionBuilds": [
+				{
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Deploy NatWest Biometric Payment",
+			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -268,30 +293,30 @@
 				"inventoryPath": "inventories/inventory.txt",
 				"parallelProcessCount": "5",
 				"playbookPath": "playbooks/first_local_playbook.yml",
-				"branch": "master",
+				"branch": "${BUSINESS_APPLICATION_VERSION_NAME}",
 				"verbosity": "Normal"
 			},
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/QA",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/QA",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"Deploy NatWest Biometric Payment"
+				"Deploy ${BUSINESS_APPLICATION_NAME}"
 			],
-			"name": "CucumberJVM - NatWest Credit Score",
+			"name": "CucumberJVM - ${APPLICATION2_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Credit-Score.last_successful_change%",
+				"changeId": "%${APPLICATION2_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
@@ -300,24 +325,24 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/QA",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/QA",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"CucumberJVM - NatWest Credit Score"
+				"CucumberJVM - ${APPLICATION2_NAME}"
 			],
-			"name": "CucumberJVM - NatWest Money Transfer",
+			"name": "CucumberJVM - ${APPLICATION3_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Credit-Score.last_successful_change%",
+				"changeId": "%${APPLICATION2_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
@@ -326,18 +351,18 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/QA",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/QA",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"CucumberJVM - NatWest Money Transfer"
+				"CucumberJVM - ${APPLICATION3_NAME}"
 			],
 			"name": "Create Change Request",
 			"kind": "Task",
@@ -345,13 +370,12 @@
 			"endpoint": "ServiceNow",
 			"parameters": {
 				"changeRequestId": "%CR_ID%",
-				"changeRequestContent": "",
 				"shortDescription": "%CR_DESCRIPTION%"
 			},
 			"type": "Create Change Request"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/UAT",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/UAT",
 			"isDisabled": false,
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
@@ -369,20 +393,20 @@
 			"type": "Wait For Approval"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/UAT",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/UAT",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
@@ -390,7 +414,7 @@
 			"previousTasks": [
 				"Wait for Approval"
 			],
-			"name": "Deploy NatWest Biometric Payment",
+			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -398,30 +422,30 @@
 				"inventoryPath": "inventories/inventory.txt",
 				"parallelProcessCount": "5",
 				"playbookPath": "playbooks/first_local_playbook.yml",
-				"branch": "master",
+				"branch": "${BUSINESS_APPLICATION_VERSION_NAME}",
 				"verbosity": "Normal"
 			},
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/UAT",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/UAT",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"Deploy NatWest Biometric Payment"
+				"Deploy ${BUSINESS_APPLICATION_NAME}"
 			],
-			"name": "CucumberJVM - NatWest Credit Score",
+			"name": "CucumberJVM - ${APPLICATION2_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Credit-Score.last_successful_change%",
+				"changeId": "%${APPLICATION2_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
@@ -430,24 +454,24 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/UAT",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/UAT",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"CucumberJVM - NatWest Credit Score"
+				"CucumberJVM - ${APPLICATION2_NAME}"
 			],
-			"name": "CucumberJVM - NatWest Money Transfer",
+			"name": "CucumberJVM - ${APPLICATION3_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%NatWest-Credit-Score.last_successful_change%",
+				"changeId": "%${APPLICATION2_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
@@ -456,25 +480,25 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/PRODUCTION",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/PRODUCTION",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Deploy NatWest Biometric Payment",
+			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -482,14 +506,14 @@
 				"inventoryPath": "inventories/inventory.txt",
 				"parallelProcessCount": "5",
 				"playbookPath": "playbooks/first_local_playbook.yml",
-				"branch": "master",
+				"branch": "${BUSINESS_APPLICATION_VERSION_NAME}",
 				"verbosity": "Normal"
 			},
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
-			"name": "Jira - NatWest Biometric Payment",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
+			"name": "Jira - ${BUSINESS_APPLICATION_NAME}",
 			"kind": "ContentSource",
 			"plugin": "Jira/2.4",
 			"endpoint": "Jira",
@@ -497,6 +521,40 @@
 				"query": "project = SW-CDD-Training and type='new feature'"
 			},
 			"type": "Jira JQL"
+		}
+	],
+	"parameters": [
+		{
+			"name": "BUSINESS_APPLICATION_NAME",
+			"value": "NatWest Biometric Payment"
+		},
+		{
+			"name": "BUSINESS_APPLICATION_VERSION_NAME",
+			"value": "master"
+		},
+		{
+			"name": "APPLICATION1_NAME",
+			"value": "NatWest-Online-Payments"
+		},
+		{
+			"name": "APPLICATION1_VERSION_NAME",
+			"value": "master"
+		},
+		{
+			"name": "APPLICATION2_NAME",
+			"value": "NatWest-Credit-Score"
+		},
+		{
+			"name": "APPLICATION2_VERSION_NAME",
+			"value": "master"
+		},
+		{
+			"name": "APPLICATION3_NAME",
+			"value": "NatWest-Money-Transfer"
+		},
+		{
+			"name": "APPLICATION3_VERSION_NAME",
+			"value": "master"
 		}
 	]
 }
