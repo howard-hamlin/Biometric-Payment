@@ -70,7 +70,7 @@
 				"DEV"
 			],
 			"approvalGate": "AUTOMATIC",
-			"skipTasksWithUnchangedApplications": false,
+			"skipTasksWithUnchangedApplications": true,
 			"isApprovalRequired": false,
 			"name": "DEV",
 			"kind": "Phase"
