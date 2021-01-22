@@ -522,39 +522,5 @@
 			},
 			"type": "Jira JQL"
 		}
-	],
-	"parameters": [
-		{
-			"name": "BUSINESS_APPLICATION_NAME",
-			"value": "NatWest Biometric Payment"
-		},
-		{
-			"name": "BUSINESS_APPLICATION_VERSION_NAME",
-			"value": "master"
-		},
-		{
-			"name": "APPLICATION1_NAME",
-			"value": "NatWest-Online-Payments"
-		},
-		{
-			"name": "APPLICATION1_VERSION_NAME",
-			"value": "master"
-		},
-		{
-			"name": "APPLICATION2_NAME",
-			"value": "NatWest-Credit-Score"
-		},
-		{
-			"name": "APPLICATION2_VERSION_NAME",
-			"value": "master"
-		},
-		{
-			"name": "APPLICATION3_NAME",
-			"value": "NatWest-Money-Transfer"
-		},
-		{
-			"name": "APPLICATION3_VERSION_NAME",
-			"value": "master"
-		}
 	]
 }
