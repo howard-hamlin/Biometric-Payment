@@ -34,7 +34,7 @@
 		}
 	],
 	"reference": {
-        "fileName": "CDD-FileSource/NatWest_Biometric_Payment_master.json",
-        "fileSource": "NatWest Biometric Payment"
+		"fileName": "CDD-FileSource/NatWest_Biometric_Payment_master.json",
+		"fileSource": "NatWest Biometric Payment"
 	}
 }
