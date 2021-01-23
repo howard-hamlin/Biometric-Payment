@@ -106,7 +106,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"UAT"
 			],
@@ -132,7 +132,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"PROD - Edinburgh"
 			],
@@ -144,7 +144,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"PROD - Nottingham"
 			],
@@ -158,7 +158,7 @@
 			"kind": "Phase"
 		},
 		{
-			"release": "NatWest Biometric Payment/master",
+			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
 				"PROD - Nottingham"
 			],
@@ -202,7 +202,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
@@ -251,7 +251,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				}
 			],
@@ -277,7 +277,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
@@ -303,7 +303,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
@@ -361,7 +361,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
@@ -387,7 +387,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
@@ -490,7 +490,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
@@ -516,7 +516,7 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
@@ -538,25 +538,25 @@
 			]
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/UAT On-Failure",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/UAT On-Failure",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Credit-Score.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Money-Transfer.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Online-Payments.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Rollback NatWest Biometric Payment",
+			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -570,7 +570,7 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/PROD - Edinburgh",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/PROD - Edinburgh",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
@@ -602,25 +602,25 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/Edinburgh On-Failure",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/Edinburgh On-Failure",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Online-Payments.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Rollback NatWest Biometric Payment",
+			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -634,25 +634,25 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/PROD - Nottingham",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/PROD - Nottingham",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Money-Transfer.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Online-Payments.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.last_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Deploy NatWest Biometric Payment",
+			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
@@ -666,25 +666,25 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "NatWest Biometric Payment/master/Nottingham On-Failure",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/Nottingham On-Failure",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%NatWest-Online-Payments.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Online-Payments/master"
+					"buildNumber": "%${APPLICATION1_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Credit-Score.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Credit-Score/master"
+					"buildNumber": "%${APPLICATION2_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				},
 				{
-					"buildNumber": "%NatWest-Money-Transfer.previous_successful_change%",
-					"applicationVersion": "Local|NatWest-Money-Transfer/master"
+					"buildNumber": "%${APPLICATION3_NAME}.previous_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
-			"name": "Rollback NatWest Biometric Payment",
+			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
 			"plugin": "Ansible Core/1.4",
 			"endpoint": "AnsibleCore",
