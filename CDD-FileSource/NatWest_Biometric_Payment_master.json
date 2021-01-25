@@ -69,8 +69,8 @@
 			"environments": [
 				"DEV"
 			],
-			"plannedStartDate": "23/01/2021 00:00:00 +02",
-			"plannedEndDate": "23/01/2021 23:59:59 +02",
+			"plannedStartDate": "26/01/2021 00:00:00 +02",
+			"plannedEndDate": "26/01/2021 23:59:59 +02",
 			"approvalGate": "AUTOMATIC",
 			"skipTasksWithUnchangedApplications": true,
 			"isApprovalRequired": false,
@@ -82,8 +82,8 @@
 			"environments": [
 				"QA"
 			],
-			"plannedStartDate": "24/01/2021 00:00:00 +02",
-			"plannedEndDate": "24/01/2021 23:59:59 +02",
+			"plannedStartDate": "27/01/2021 00:00:00 +02",
+			"plannedEndDate": "27/01/2021 23:59:59 +02",
 			"approvalGate": "MANUAL",
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": true,
@@ -96,8 +96,8 @@
 			"environments": [
 				"UAT"
 			],
-			"plannedStartDate": "25/01/2021 00:00:00 +02",
-			"plannedEndDate": "25/01/2021 23:59:59 +02",
+			"plannedStartDate": "28/01/2021 00:00:00 +02",
+			"plannedEndDate": "28/01/2021 23:59:59 +02",
 			"approvalGate": "MANUAL",
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": false,
@@ -122,8 +122,8 @@
 			"environments": [
 				"PROD - Edinburgh"
 			],
-			"plannedStartDate": "26/01/2021 00:00:00 +02",
-			"plannedEndDate": "26/01/2021 23:59:59 +02",
+			"plannedStartDate": "29/01/2021 00:00:00 +02",
+			"plannedEndDate": "29/01/2021 23:59:59 +02",
 			"approvalGate": "SCHEDULED",
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": false,
@@ -148,8 +148,8 @@
 			"environments": [
 				"PROD - London"
 			],
-			"plannedStartDate": "27/01/2021 00:00:00 +02",
-			"plannedEndDate": "27/01/2021 23:59:03 +02",
+			"plannedStartDate": "30/01/2021 00:00:00 +02",
+			"plannedEndDate": "30/01/2021 23:59:03 +02",
 			"approvalGate": "SCHEDULED",
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": false,
