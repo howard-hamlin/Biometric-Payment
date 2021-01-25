@@ -405,7 +405,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"CucumberJVM - Credit Score"
+				"CucumberJVM - ${APPLICATION2_NAME}"
 			]
 		},
 		{
@@ -431,7 +431,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"CucumberJVM - Money Transfer"
+				"CucumberJVM - ${APPLICATION3_NAME}"
 			]
 		},
 		{
@@ -534,7 +534,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"CucumberJVM - Credit Score"
+				"CucumberJVM - ${APPLICATION2_NAME}"
 			]
 		},
 		{
@@ -560,7 +560,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"CucumberJVM - Money Transfer"
+				"CucumberJVM - ${APPLICATION3_NAME}"
 			]
 		},
 		{
