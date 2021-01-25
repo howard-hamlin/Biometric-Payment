@@ -146,7 +146,7 @@
 		{
 			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
-				"PROD - Nottingham"
+				"PROD - London"
 			],
 			"plannedStartDate": "27/01/2021 00:00:00 +02",
 			"plannedEndDate": "27/01/2021 23:59:03 +02",
@@ -154,19 +154,19 @@
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": false,
 			"previousPhase": "PROD - Edinburgh",
-			"name": "PROD - Nottingham",
+			"name": "PROD - London",
 			"kind": "Phase"
 		},
 		{
 			"release": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}",
 			"environments": [
-				"PROD - Nottingham"
+				"PROD - London"
 			],
 			"approvalGate": "ON_FAILURE",
 			"skipTasksWithUnchangedApplications": false,
 			"isApprovalRequired": false,
-			"onFailureFailedPhase": "PROD - Nottingham",
-			"name": "Nottingham On-Failure",
+			"onFailureFailedPhase": "PROD - London",
+			"name": "London On-Failure",
 			"kind": "Phase"
 		},
 		{
@@ -660,7 +660,7 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/PROD - Nottingham",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/PROD - London",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
@@ -692,7 +692,7 @@
 			"type": "Run Ansible Playbook"
 		},
 		{
-			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/Nottingham On-Failure",
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/London On-Failure",
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
