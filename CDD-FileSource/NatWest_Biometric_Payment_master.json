@@ -251,8 +251,8 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
-					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
-					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
@@ -260,11 +260,11 @@
 			"previousTasks": [
 				"SonarQube"
 			],
-			"name": "CucumberJVM - Money Transfer",
+			"name": "CucumberJVM - {APPLICATION1_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
-				"changeId": "%${APPLICATION3_NAME}.last_successful_change%",
+				"changeId": "%${APPLICATION1_NAME}.last_successful_change%",
 				"runOnlySubset": "false"
 			},
 			"type": "Run Adaptive Testing",
