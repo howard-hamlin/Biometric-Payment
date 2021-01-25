@@ -260,7 +260,7 @@
 			"previousTasks": [
 				"SonarQube"
 			],
-			"name": "CucumberJVM - {APPLICATION1_NAME}",
+			"name": "CucumberJVM - ${APPLICATION1_NAME}",
 			"kind": "Task",
 			"plugin": "ADAPTIVE TESTING/1.1.1|2",
 			"parameters": {
