@@ -284,7 +284,7 @@
 			"isOnFailurePhaseEnabled": false,
 			"isSkipTaskOnFailure": true,
 			"previousTasks": [
-				"CucumberJVM - Money Transfer"
+				"CucumberJVM - ${APPLICATION1_NAME}"
 			],
 			"name": "${APPLICATION1_NAME} API Testing",
 			"kind": "Task",
