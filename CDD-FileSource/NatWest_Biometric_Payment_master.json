@@ -365,7 +365,7 @@
 					"applicationVersion": "Local|${APPLICATION3_NAME}/master"
 				}
 			],
-			"isOnFailurePhaseEnabled": true,
+			"isOnFailurePhaseEnabled": false,
 			"isSkipTaskOnFailure": true,
 			"previousTasks": [
 				"Deploy ${BUSINESS_APPLICATION_NAME}"
