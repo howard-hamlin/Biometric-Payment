@@ -361,6 +361,32 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/master"
+				}
+			],
+			"isOnFailurePhaseEnabled": true,
+			"isSkipTaskOnFailure": false,
+			"previousTasks": [
+				"Deploy ${BUSINESS_APPLICATION_NAME}"
+			],
+			"name": "Blazemeter ${APPLICATION3_NAME}",
+			"kind": "Task",
+			"plugin": "ADAPTIVE TESTING/1.1.1|2",
+			"parameters": {
+				"changeId": "%${APPLICATION3_NAME}.last_successful_change%",
+				"runOnlySubset": "false"
+			},
+			"type": "Run Adaptive Testing",
+			"tags": [
+				"RBS_DEMO"
+			]
+		},
+		{
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/QA",
+			"isDisabled": false,
+			"applicationVersionBuilds": [
+				{
 					"buildNumber": "%${APPLICATION2_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION2_NAME}/${APPLICATION2_VERSION_NAME}"
 				}
@@ -368,7 +394,7 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"Deploy ${BUSINESS_APPLICATION_NAME}"
+				"Blazemeter ${APPLICATION3_NAME}"
 			],
 			"name": "CucumberJVM - ${APPLICATION2_NAME}",
 			"kind": "Task",
