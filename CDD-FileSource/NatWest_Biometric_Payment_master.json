@@ -366,7 +366,7 @@
 				}
 			],
 			"isOnFailurePhaseEnabled": true,
-			"isSkipTaskOnFailure": false,
+			"isSkipTaskOnFailure": true,
 			"previousTasks": [
 				"Deploy ${BUSINESS_APPLICATION_NAME}"
 			],
