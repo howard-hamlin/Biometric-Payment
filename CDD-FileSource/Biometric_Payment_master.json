@@ -258,6 +258,32 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
+					"SonarQube"
+			],
+			"name": "ALM - Online-Payments",
+			"kind": "Task",
+			"plugin": "ADAPTIVE TESTING/1.1.1|2",
+			"parameters": {
+				"changeId": "%${APPLICATION1_NAME}.last_successful_change%",
+				"runOnlySubset": "false"
+			},
+			"type": "Run Adaptive Testing",
+			"tags": [
+				"CDD_Demo"
+			]
+		},
+		{
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
+			"isDisabled": false,
+			"applicationVersionBuilds": [
+				{
+					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
+				}
+			],
+			"isOnFailurePhaseEnabled": true,
+			"isSkipTaskOnFailure": false,
+			"previousTasks": [
 				"SonarQube"
 			],
 			"name": "CucumberJVM - ${APPLICATION1_NAME}",
@@ -379,7 +405,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"RBS_DEMO"
+				"${BLAZEMETER_TEST_TAG}"
 			]
 		},
 		{
