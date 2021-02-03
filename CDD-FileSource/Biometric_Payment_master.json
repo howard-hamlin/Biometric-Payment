@@ -303,6 +303,32 @@
 			"isDisabled": false,
 			"applicationVersionBuilds": [
 				{
+					"buildNumber": "%${APPLICATION3_NAME}.last_successful_change%",
+					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
+				}
+			],
+			"isOnFailurePhaseEnabled": true,
+			"isSkipTaskOnFailure": false,
+			"previousTasks": [
+				"ALM - ${APPLICATION1_NAME}"
+			],
+			"name": "MavenTesting Selenium ${APPLICATION3_NAME}",
+			"kind": "Task",
+			"plugin": "ADAPTIVE TESTING/1.1.1|2",
+			"parameters": {
+				"changeId": "%${APPLICATION3_NAME}.last_successful_change%",
+				"runOnlySubset": "false"
+			},
+			"type": "Run Adaptive Testing",
+			"tags": [
+				"MavenTesting ${APPLICATION3_NAME}"
+			]
+		},
+		{
+			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
+			"isDisabled": false,
+			"applicationVersionBuilds": [
+				{
 					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
 					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
 				}
@@ -310,7 +336,8 @@
 			"isOnFailurePhaseEnabled": false,
 			"isSkipTaskOnFailure": true,
 			"previousTasks": [
-				"CucumberJVM - ${APPLICATION1_NAME}"
+				"CucumberJVM - ${APPLICATION1_NAME}",
+				"MavenTesting Selenium ${APPLICATION3_NAME}"
 			],
 			"name": "${APPLICATION1_NAME} API Testing",
 			"kind": "Task",
