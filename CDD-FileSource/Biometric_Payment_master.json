@@ -270,7 +270,7 @@
 			"type": "Run Adaptive Testing",
 			"tags": [
 				"CucumberJVM"
-			]
+			] 
 		},
 		{
 			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
