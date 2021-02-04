@@ -258,33 +258,7 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-					"SonarQube"
-			],
-			"name": "ALM - ${APPLICATION1_NAME}",
-			"kind": "Task",
-			"plugin": "ADAPTIVE TESTING/1.1.1|2",
-			"parameters": {
-				"changeId": "%${APPLICATION1_NAME}.last_successful_change%",
-				"runOnlySubset": "false"
-			},
-			"type": "Run Adaptive Testing",
-			"tags": [
-				"CDD_Demo"
-			]
-		},
-		{
-			"phase": "${BUSINESS_APPLICATION_NAME}/${BUSINESS_APPLICATION_VERSION_NAME}/DEV",
-			"isDisabled": false,
-			"applicationVersionBuilds": [
-				{
-					"buildNumber": "%${APPLICATION1_NAME}.last_successful_change%",
-					"applicationVersion": "Local|${APPLICATION1_NAME}/${APPLICATION1_VERSION_NAME}"
-				}
-			],
-			"isOnFailurePhaseEnabled": true,
-			"isSkipTaskOnFailure": false,
-			"previousTasks": [
-				"ALM - ${APPLICATION1_NAME}"
+				"name": "SonarQube"
 			],
 			"name": "CucumberJVM - ${APPLICATION1_NAME}",
 			"kind": "Task",
@@ -310,7 +284,7 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"ALM - ${APPLICATION1_NAME}"
+				"CucumberJVM - ${APPLICATION1_NAME}"
 			],
 			"name": "MavenTesting Selenium ${APPLICATION3_NAME}",
 			"kind": "Task",
