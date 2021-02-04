@@ -284,7 +284,7 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [
-				"CucumberJVM - ${APPLICATION1_NAME}"
+				"SonarQube"
 			],
 			"name": "MavenTesting Selenium ${APPLICATION3_NAME}",
 			"kind": "Task",
