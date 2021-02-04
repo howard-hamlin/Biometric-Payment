@@ -281,7 +281,7 @@
 					"applicationVersion": "Local|${APPLICATION3_NAME}/${APPLICATION3_VERSION_NAME}"
 				}
 			],
-			"isOnFailurePhaseEnabled": true,
+			"isOnFailurePhaseEnabled": false,
 			"isSkipTaskOnFailure": true,
 			"previousTasks": [
 				"SonarQube"
