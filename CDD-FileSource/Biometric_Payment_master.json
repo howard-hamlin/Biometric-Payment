@@ -258,7 +258,7 @@
 			"isOnFailurePhaseEnabled": true,
 			"isSkipTaskOnFailure": false,
 			"previousTasks": [ 
-				"name": "SonarQube"
+				"SonarQube"
 			],
 			"name": "CucumberJVM - ${APPLICATION1_NAME}",
 			"kind": "Task",
