@@ -6,10 +6,12 @@ def call(Map config) {
 	projectName = config.projectName
 	scope = config.scope
 	env.CDD_BUSINESS_APPLICATION_NAME = config.businessApplicationName
+	env.CDD_FILE_SOURCE_BRANCH_NAME = config.fileSourceBranchName
   }
   println "Optional Parameter [projectName=${projectName}]."
   println "Optional Parameter [scope=${scope}]."
   println "Optional Parameter [businessApplicationName=${env.CDD_BUSINESS_APPLICATION_NAME}]."
+  println "Optional Parameter [fileSourceBranchName=${env.CDD_FILE_SOURCE_BRANCH_NAME}]."
   environmentSetUp(projectName)
   sendNotificationToCDDirector(scope)	 
   processCDDReleases(evaluate("${currentBuild.description}"))
@@ -23,17 +25,21 @@ void environmentSetUp(projectName) {
  getAPIKeyFromCredentials(projectName)
  setGitEnvironmentVariables()
  setCDDServerName()
- env.CDD_SERVER_PORT = 0
- env.CDD_USE_SSL = false
+ env.CDD_SERVER_PORT = 443
+ env.CDD_USE_SSL = true
  env.CDD_PROXY_SERVER_URL = ""
  env.CDD_PROXY_SERVER_USERNAME = ""
  env.CDD_PROXY_SERVER_PASSWORD = ""
  if(!("${env.CDD_BUSINESS_APPLICATION_NAME}") || 'null' == "${env.CDD_BUSINESS_APPLICATION_NAME}"){
 	env.CDD_BUSINESS_APPLICATION_NAME = "${env.GIT_URL.replaceFirst(/^.*\/(.*)\/.*.git$/, '$1')}"
-	echo "Using Repository Owner: [${CDD_BUSINESS_APPLICATION_NAME}] as Business Application Name."
+	echo "Using Repository Owner: [${env.CDD_BUSINESS_APPLICATION_NAME}] as Business Application Name."
  }
  env.CDD_APPLICATION_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
  env.CDD_APPLICATION_VERSION_NAME = "$env.BRANCH_NAME"
+ if(!("${env.CDD_FILE_SOURCE_BRANCH_NAME}") || 'null' == "${env.CDD_FILE_SOURCE_BRANCH_NAME}"){
+	env.CDD_FILE_SOURCE_BRANCH_NAME = "${CDD_APPLICATION_VERSION_NAME}"
+	echo "Using Repository Branch Name: [${env.CDD_FILE_SOURCE_BRANCH_NAME}] as the File Source Branch Name."
+ }
  env.CDD_GIT_COMMIT_ID = "$env.GIT_COMMIT"
  env.CDD_PREVIOUS_GIT_COMMIT_ID = "$env.GIT_PREVIOUS_SUCCESSFUL_COMMIT"
 }
@@ -46,7 +52,7 @@ void setCDDServerName(){
    println "Using Global Environment Variable - CDD_SERVER_URL: [${env.CDD_SERVER_URL}]"
    env.CDD_SERVER_NAME = "${env.CDD_SERVER_URL}"
  }else{
-   env.CDD_SERVER_NAME = "ibndev003773.bpc.broadcom.net"
+   env.CDD_SERVER_NAME = "https://cddirector.io:443"
  }
 }
 
@@ -80,9 +86,17 @@ void getAPIKeyFromCredentials(projectName) {
 }
 
 void setGitEnvironmentVariables() {
- if (!env.GIT_URL) env.GIT_URL = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
- if (!env.GIT_COMMIT) env.GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
- if (!env.GIT_PREVIOUS_SUCCESSFUL_COMMIT) env.GIT_PREVIOUS_SUCCESSFUL_COMMIT = getLastSuccessfulCommit()
+  if (!env.GIT_URL) {
+    println "Executing command to fetch GIT_URL"
+    env.GIT_URL = executeCommand("git config remote.origin.url")
+  }
+  if (!env.GIT_COMMIT) {
+    println "Executing command to fetch GIT_COMMIT"
+    env.GIT_COMMIT = executeCommand("git rev-parse HEAD")
+  }
+  if (!env.GIT_PREVIOUS_SUCCESSFUL_COMMIT) {
+    env.GIT_PREVIOUS_SUCCESSFUL_COMMIT = getLastSuccessfulCommit()
+  }
 }
 
 String getLastSuccessfulCommit() {
@@ -96,9 +110,9 @@ String getLastSuccessfulCommit() {
   lastSuccessfulHash = scmAction?.revision?.hash
   println "Previous Successful Build Revision: [${scmAction?.revision}], Hash: [$lastSuccessfulHash], Source Id: [${scmAction?.sourceId}]."
  }
- if(lastSuccessfulHash)
-	 return lastSuccessfulHash
- return getFirstCommit()
+ if(!lastSuccessfulHash && isUnix())
+  return getFirstCommit()
+ return lastSuccessfulHash
 }
 
 String getFirstCommit() {
@@ -108,6 +122,15 @@ String getFirstCommit() {
  return firstCommit
 }
 
+String executeCommand(String command) {
+  if (isUnix()) {
+    return sh(returnStdout: true, script: command).trim()
+  }
+  else {
+    return bat(returnStdout: true, script: command).trim().readLines().drop(1).join(" ")
+  }
+}
+  
 void sendNotificationToCDDirector(scope) {
  echo '----------Sending Change Notification to CDD--------------'
  echo "Environment variables: GIT_URL: [$env.GIT_URL], GIT_BRANCH: [$env.GIT_BRANCH], BRANCH_NAME: [$env.BRANCH_NAME], GIT_LOCAL_BRANCH: [$env.GIT_LOCAL_BRANCH], CDD_APPLICATION_NAME: [${CDD_APPLICATION_NAME}], CDD_APPLICATION_VERSION_NAME: [${CDD_APPLICATION_VERSION_NAME}], GIT_COMMIT: [${env.GIT_COMMIT}], GIT_PREVIOUS_SUCCESSFUL_COMMIT: [${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}]"
@@ -132,9 +155,9 @@ void sendNotificationToCDDirector(scope) {
   onlyIntelligentTestSuites: false,
   commitSource: '', 
   scope: "${scope}",
-  fileSourceName:"",
-  fileSourceParameters:'{"branch":"${CDD_APPLICATION_VERSION_NAME}"}',
-  dslFilename:"",
+  fileSourceName:'',
+  fileSourceParameters:'{"branch":"${CDD_FILE_SOURCE_BRANCH_NAME}"}',
+  dslFilename:'',
   dslParameters:'{"BUSINESS_APPLICATION_NAME": "${CDD_BUSINESS_APPLICATION_NAME}", "BUSINESS_APPLICATION_VERSION_NAME": "${CDD_APPLICATION_VERSION_NAME}", "APPLICATION_NAME":"${CDD_APPLICATION_NAME}","APPLICATION_VERSION_NAME":"${CDD_APPLICATION_VERSION_NAME}"}'
  echo '----------Jenkins Pipeline completed successfully--------------'
 }
