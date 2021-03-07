@@ -210,7 +210,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Deploy ${APPLICATION1_NAME}",
 			"kind": "Task",
-			"plugin": "Tomcat/1.0",
+			"plugin": "Tomcat/1.4",
 			"endpoint": "Tomcat",
 			"parameters": {
 				"tomcatContextPath": "/dummy",
