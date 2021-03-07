@@ -269,7 +269,7 @@
 			},
 			"type": "Run Adaptive Testing",
 			"tags": [
-				"CucumberJVM"
+				"cucumber-junit5-rest-api"
 			] 
 		},
 		{
