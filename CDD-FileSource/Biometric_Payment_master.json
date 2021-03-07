@@ -186,7 +186,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -372,7 +372,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -527,7 +527,7 @@
 			],
 			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -611,7 +611,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -643,7 +643,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -675,7 +675,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -707,7 +707,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Deploy ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
@@ -739,7 +739,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Rollback ${BUSINESS_APPLICATION_NAME}",
 			"kind": "Task",
-			"plugin": "Ansible Core/1.4",
+			"plugin": "Ansible Core/2.0",
 			"endpoint": "AnsibleCore",
 			"parameters": {
 				"inventoryPath": "inventories/inventory.txt",
