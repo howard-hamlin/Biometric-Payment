@@ -477,7 +477,7 @@
 			],
 			"name": "Create Change Request",
 			"kind": "Task",
-			"plugin": "ServiceNow/2.2",
+			"plugin": "ServiceNow/2.3",
 			"endpoint": "ServiceNow",
 			"parameters": {
 				"changeRequestId": "%CR_ID%",
@@ -492,7 +492,7 @@
 			"isSkipTaskOnFailure": false,
 			"name": "Wait for Approval",
 			"kind": "Task",
-			"plugin": "ServiceNow/2.2",
+			"plugin": "ServiceNow/2.3",
 			"endpoint": "ServiceNow",
 			"parameters": {
 				"changeRequestId": "%CR_ID%",
