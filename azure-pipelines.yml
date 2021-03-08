@@ -19,4 +19,4 @@ steps:
     application: 'repoNameAsApplicationName'
     applicationVersion: 'branchNameAsVersion'
     notificationExecutionStrategy: 'createRelease'
-    dslParameter: '{a: a}'
+    dslParameter: '{"a":"a"}'
